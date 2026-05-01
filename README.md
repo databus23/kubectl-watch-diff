@@ -167,6 +167,13 @@ setup-envtest use
 KUBEBUILDER_ASSETS="$(setup-envtest use --print path)" go test -v -timeout 120s ./tests/
 ```
 
+## Acknowledgements
+
+This project was inspired by:
+
+- [kubectl-watch-diff](https://github.com/alexmt/kubectl-watch-diff) by Alex Matyushentsev
+- [kube-watch-diff](https://github.com/leopoldxx/kube-watch-diff) by leopoldxx
+
 ## License
 
 Apache License 2.0 — see [LICENSE](./LICENSE) for details.
