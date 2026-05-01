@@ -1,0 +1,46 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  name: diff-watch
+spec:
+  version: {{ .TagName }}
+  homepage: https://github.com/databus23/kubectl-diff-watch
+  platforms:
+  - selector:
+      matchLabels:
+        os: darwin
+        arch: amd64
+    {{addURIAndSha "https://github.com/databus23/kubectl-diff-watch/releases/download/{{ .TagName }}/kubectl-diff-watch_darwin_amd64.tar.gz" .TagName }}
+    bin: kubectl-diff-watch
+  - selector:
+      matchLabels:
+        os: darwin
+        arch: arm64
+    {{addURIAndSha "https://github.com/databus23/kubectl-diff-watch/releases/download/{{ .TagName }}/kubectl-diff-watch_darwin_arm64.tar.gz" .TagName }}
+    bin: kubectl-diff-watch
+  - selector:
+      matchLabels:
+        os: linux
+        arch: amd64
+    {{addURIAndSha "https://github.com/databus23/kubectl-diff-watch/releases/download/{{ .TagName }}/kubectl-diff-watch_linux_amd64.tar.gz" .TagName }}
+    bin: kubectl-diff-watch
+  - selector:
+      matchLabels:
+        os: linux
+        arch: arm64
+    {{addURIAndSha "https://github.com/databus23/kubectl-diff-watch/releases/download/{{ .TagName }}/kubectl-diff-watch_linux_arm64.tar.gz" .TagName }}
+    bin: kubectl-diff-watch
+  - selector:
+      matchLabels:
+        os: windows
+        arch: amd64
+    {{addURIAndSha "https://github.com/databus23/kubectl-diff-watch/releases/download/{{ .TagName }}/kubectl-diff-watch_windows_amd64.zip" .TagName }}
+    bin: kubectl-diff-watch.exe
+  shortDescription: Watch resources and show diffs when they change
+  description: |
+    Watches Kubernetes resources in real-time and displays colored diffs
+    whenever a resource changes. Useful for observing how controllers,
+    operators, or manual edits modify resources over time.
+
+    Supports colored unified diff (default), structural diff via dyff,
+    and plain text output formats.
